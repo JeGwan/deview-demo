@@ -13,6 +13,25 @@
   "rules": {
     "no-console": "warn",
     "consistent-return": "warn",
-    "no-unused-vars": "warn"
+    "no-unused-vars": "warn",
+    "import/order": [
+      "warn",
+      {
+        "groups": ["builtin", "external", "internal"],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ]
   }
 }
