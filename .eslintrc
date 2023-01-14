@@ -9,7 +9,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": [],
+  "plugins": ["unused-imports"],
   "rules": {
     "no-console": "warn",
     "consistent-return": "warn",
@@ -32,6 +32,7 @@
           "caseInsensitive": true
         }
       }
-    ]
+    ],
+    "unused-imports/no-unused-imports": "warn"
   }
 }
