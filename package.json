@@ -5,7 +5,7 @@
     "dev": "yarn graphql-codegen && next",
     "build": "yarn graphql-codegen && next build",
     "test": "yarn graphql-codegen && jest",
-    "lint": "eslint .",
+    "lint": "eslint --fix .",
     "start": "next start"
   },
   "dependencies": {
