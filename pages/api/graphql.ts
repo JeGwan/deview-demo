@@ -1,9 +1,9 @@
-import { createSchema, createYoga } from 'graphql-yoga'
 import gql from 'graphql-tag'
+import { createSchema, createYoga } from 'graphql-yoga'
+import { NextApiRequest, NextApiResponse } from 'next'
 
 import resolvers from 'lib/resolvers'
 import typeDefs from 'lib/schema'
-import { NextApiRequest, NextApiResponse } from 'next'
 
 const schema = createSchema({
   typeDefs: gql(typeDefs),

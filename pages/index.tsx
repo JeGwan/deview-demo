@@ -1,7 +1,10 @@
-import { useMutation, useQuery } from '@apollo/client'
-import { graphql } from 'lib/gql'
-import Link from 'next/link'
 import { useState } from 'react'
+
+import { useMutation, useQuery } from '@apollo/client'
+import Link from 'next/link'
+
+import { graphql } from 'lib/gql'
+
 import { initializeApollo } from '../lib/apollo'
 
 const updateNameDocument = graphql(/* GraphQL */ `
