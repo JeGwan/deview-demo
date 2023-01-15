@@ -1,3 +1,5 @@
+import { PHASE } from 'utils'
+
 const defaultQuery = `
 query IntrospectionQuery {
   __schema {
@@ -14,7 +16,6 @@ export interface GraphiQLPageOptions {
 
 export default function graphiqlPage(options: GraphiQLPageOptions) {
   const { endpointUrl } = options
-  const phase = process.env.PHASE ?? 'development'
   return `
 <!DOCTYPE html>
 <html>
@@ -32,7 +33,7 @@ export default function graphiqlPage(options: GraphiQLPageOptions) {
         height: 100vh;
       }
     </style>
-    <title>GraphiQL 🤟 - ${phase}</title>
+    <title>GraphiQL 🤟 - ${PHASE}</title>
     <link rel="icon" type="image/x-icon" href="https://graphql.org/img/logo.svg">
     <link rel="stylesheet" href="https://unpkg.com/graphiql/graphiql.min.css" />
     <link
