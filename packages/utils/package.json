@@ -1,8 +1,12 @@
 {
   "name": "utils",
   "version": "0.0.0",
-  "main": "index.ts",
+  "types": "src/index.ts",
+  "main": "dist/index.js",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  },
   "dependencies": {},
   "devDependencies": {
     "typescript": "^4.7.4"
