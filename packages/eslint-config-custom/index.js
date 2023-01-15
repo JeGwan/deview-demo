@@ -1,5 +1,6 @@
 module.exports = {
   extends: ['prettier'],
+  plugins: ['unused-imports'],
   rules: {
     'no-console': 'warn',
     'consistent-return': 'warn',

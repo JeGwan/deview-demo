@@ -1,19 +1,17 @@
 {
+  "root": true,
   "env": {
     "browser": true,
     "es2021": true,
     "node": true
   },
-  "extends": ["next"],
+  "extends": ["next", "custom"],
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["unused-imports"],
+  "plugins": [],
   "rules": {
-    "no-console": "warn",
-    "consistent-return": "warn",
-    "no-unused-vars": "warn",
     "import/order": [
       "warn",
       {
@@ -32,7 +30,6 @@
           "caseInsensitive": true
         }
       }
-    ],
-    "unused-imports/no-unused-imports": "warn"
+    ]
   }
 }
