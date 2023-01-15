@@ -25,5 +25,5 @@
       "source.fixAll": true
     }
   },
-  "eslint.workingDirectories": ["./"]
+  "eslint.workingDirectories": ["./apps/api", "./apps/web"]
 }
