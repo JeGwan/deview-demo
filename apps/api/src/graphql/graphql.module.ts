@@ -14,6 +14,10 @@ export class AppGraphQLModule {
       playground: IS_DEV,
       introspection: true,
       path: GRAPHQL_PATH,
+      cors: {
+        credentials: true,
+        origin: /localhost/,
+      },
     })
   }
 }
