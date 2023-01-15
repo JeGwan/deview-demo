@@ -2,14 +2,8 @@ import { IncomingMessage, ServerResponse } from 'http'
 
 import { useMemo } from 'react'
 
-import {
-  ApolloClient,
-  InMemoryCache,
-  NormalizedCacheObject,
-} from '@apollo/client'
-
-import resolvers from './resolvers'
-import typeDefs from './schema'
+import { ApolloClient, InMemoryCache, NormalizedCacheObject } from '@apollo/client'
+import { IS_BROWSER, IS_DEV } from 'utils'
 
 let apolloClient: ApolloClient<NormalizedCacheObject> | undefined
 
@@ -19,22 +13,12 @@ export type ResolverContext = {
 }
 
 function createIsomorphLink(context: ResolverContext = {}) {
-  if (typeof window === 'undefined') {
-    const { SchemaLink } = require('@apollo/client/link/schema')
-    const { makeExecutableSchema } = require('@graphql-tools/schema')
+  const { HttpLink } = require('@apollo/client')
 
-    const schema = makeExecutableSchema({
-      typeDefs,
-      resolvers,
-    })
-    return new SchemaLink({ schema, context })
-  } else {
-    const { HttpLink } = require('@apollo/client')
-    return new HttpLink({
-      uri: '/api/graphql',
-      credentials: 'same-origin',
-    })
-  }
+  return new HttpLink({
+    uri: 'http://localhost:4000/graphql',
+    ...(IS_BROWSER ? { credentials: 'include' } : { headers: { cookie: context.req?.headers?.cookie } }),
+  })
 }
 
 function createApolloClient(context?: ResolverContext) {
@@ -42,6 +26,7 @@ function createApolloClient(context?: ResolverContext) {
     ssrMode: typeof window === 'undefined',
     link: createIsomorphLink(context),
     cache: new InMemoryCache(),
+    connectToDevTools: IS_DEV,
   })
 }
 
@@ -49,7 +34,7 @@ export function initializeApollo(
   initialState: any = null,
   // Pages with Next.js data fetching methods, like `getStaticProps`, can send
   // a custom context which will be used by `SchemaLink` to server render pages
-  context?: ResolverContext
+  context?: ResolverContext,
 ) {
   const _apolloClient = apolloClient ?? createApolloClient(context)
 
