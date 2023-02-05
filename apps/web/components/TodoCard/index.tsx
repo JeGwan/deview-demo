@@ -5,6 +5,7 @@ import { Todo } from 'lib/gql/graphql'
 
 import Checkbox from '../Checkbox'
 import styles from './TodoCard.module.scss'
+import TodoCardTitle from './TodoCardTitle'
 
 const UpdateTodo = graphql(`
   mutation UpdateTodo($id: Int!, $update: UpdateTodoInput!) {
@@ -38,7 +39,7 @@ const TodoCard = ({ todo }: Props) => {
 
   return (
     <li className={styles.todo_card}>
-      <h1 className={styles.todo_title}>{todo.title}</h1>
+      <TodoCardTitle todo={todo} />
       {todo.description && <div className={styles.todo_desc}>{todo.description}</div>}
       <Checkbox checked={todo.completed} className={styles.todo_check} onChecked={handleChecked} />
     </li>
