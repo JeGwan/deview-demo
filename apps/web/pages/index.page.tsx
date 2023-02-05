@@ -1,5 +1,6 @@
 import { useQuery } from '@apollo/client'
 
+import Form from 'components/Form'
 import TodoCardList from 'components/TodoCardList'
 import { graphql } from 'lib/gql'
 
@@ -18,13 +19,14 @@ const Todos = graphql(`
 `)
 
 const Index = () => {
-  const { data, loading, error } = useQuery(Todos)
+  const { data, loading, error, refetch: refetchTodos } = useQuery(Todos)
 
   if (loading) return <main className={styles.main}>loading</main>
   if (!data || error) return <main className={styles.main}>error occured</main>
 
   return (
     <main className={styles.main}>
+      <Form onCreated={refetchTodos} />
       <TodoCardList todos={data.todos} />
     </main>
   )
