@@ -1,5 +1,7 @@
 import { Todo } from 'lib/gql/graphql'
 
+import TodoCard from './TodoCard'
+
 interface Props {
   todos: Todo[]
 }
@@ -8,7 +10,7 @@ const TodoCardList = ({ todos }: Props) => {
   return (
     <ul>
       {todos.map(todo => (
-        <li key={todo.id}>{todo.title}</li>
+        <TodoCard key={todo.id} todo={todo} />
       ))}
     </ul>
   )
