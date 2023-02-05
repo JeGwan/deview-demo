@@ -2,21 +2,19 @@ import { useQuery } from '@apollo/client'
 
 import { graphql } from 'lib/gql'
 
-import { initializeApollo } from '../lib/apollo'
-
-const Posts = graphql(`
-  query Posts {
-    posts {
+const Todos = graphql(`
+  query Todos {
+    todos {
       id
-      userId
       title
-      body
+      description
+      completed
     }
   }
 `)
 
 const Index = () => {
-  const { data, loading, error } = useQuery(Posts)
+  const { data, loading, error } = useQuery(Todos)
 
   if (loading) return <div>loading</div>
   if (error) return <div>error occured</div>
@@ -25,22 +23,12 @@ const Index = () => {
     <div>
       <h1>Hello</h1>
       <ul>
-        {data.posts.map(post => (
-          <li key={post.id}>{post.title}</li>
+        {data.todos.map(todo => (
+          <li key={todo.id}>{todo.title}</li>
         ))}
       </ul>
     </div>
   )
-}
-
-export async function getStaticProps() {
-  const apolloClient = initializeApollo()
-
-  return {
-    props: {
-      initialApolloState: apolloClient.cache.extract(),
-    },
-  }
 }
 
 export default Index
