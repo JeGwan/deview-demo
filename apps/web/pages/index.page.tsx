@@ -1,5 +1,6 @@
 import { useQuery } from '@apollo/client'
 
+import TodoCardList from 'components/TodoCardList'
 import { graphql } from 'lib/gql'
 
 const Todos = graphql(`
@@ -9,6 +10,7 @@ const Todos = graphql(`
       title
       description
       completed
+      createdDateTime
     }
   }
 `)
@@ -22,11 +24,7 @@ const Index = () => {
   return (
     <div>
       <h1>Hello</h1>
-      <ul>
-        {data.todos.map(todo => (
-          <li key={todo.id}>{todo.title}</li>
-        ))}
-      </ul>
+      <TodoCardList todos={data.todos} />
     </div>
   )
 }
