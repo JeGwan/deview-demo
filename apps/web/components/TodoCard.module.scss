@@ -1,4 +1,5 @@
 .todo_card {
+  position: relative;
   list-style: none;
   display: block;
   border-radius: 8px;
@@ -16,5 +17,10 @@
     margin-top: 8px;
     font-size: 14px;
     color: #777;
+  }
+  .todo_check {
+    position: absolute;
+    top: 18px;
+    right: 16px;
   }
 }

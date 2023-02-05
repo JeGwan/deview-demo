@@ -1,0 +1,20 @@
+.input {
+  display: none;
+}
+.checkbox {
+  cursor: pointer;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #eee;
+  &.checked {
+    border: none;
+    background-color: #111;
+    background-image: url(../assets/white_check_mark.svg);
+    background-size: 12px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
