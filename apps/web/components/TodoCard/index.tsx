@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client'
 import { graphql } from 'lib/gql'
 import { Todo } from 'lib/gql/graphql'
 
-import Checkbox from './Checkbox'
+import Checkbox from '../Checkbox'
 import styles from './TodoCard.module.scss'
 
 const UpdateTodo = graphql(`
