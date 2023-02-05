@@ -14,7 +14,8 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "baseUrl": ".",
-    "incremental": true
+    "incremental": true,
+    "strictNullChecks": true
   },
   "include": ["next-env.d.ts", "graphql.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", ".cache"]

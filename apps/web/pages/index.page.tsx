@@ -21,7 +21,7 @@ const Index = () => {
   const { data, loading, error } = useQuery(Todos)
 
   if (loading) return <main className={styles.main}>loading</main>
-  if (error) return <main className={styles.main}>error occured</main>
+  if (!data || error) return <main className={styles.main}>error occured</main>
 
   return (
     <main className={styles.main}>
