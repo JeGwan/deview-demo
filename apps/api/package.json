@@ -26,6 +26,7 @@
     "apollo-server-express": "^3.11.1",
     "axios": "^1.2.2",
     "graphql": "^16.6.0",
+    "graphql-scalars": "^1.20.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",
