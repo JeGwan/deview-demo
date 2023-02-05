@@ -1,4 +1,5 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql'
+import { GraphQLDateTime } from 'graphql-scalars'
 
 @ObjectType()
 export class Todo {
@@ -13,4 +14,7 @@ export class Todo {
 
   @Field(type => Boolean)
   completed: boolean
+
+  @Field(type => GraphQLDateTime)
+  createdDateTime: Date
 }
