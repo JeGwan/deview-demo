@@ -26,3 +26,18 @@ type Query {
   posts: [Post!]!
   todos: [Todo!]!
 }
+
+type Mutation {
+  createTodo(input: CreateTodoInput!): Todo!
+  updateTodo(id: Int!, update: UpdateTodoInput!): Todo
+}
+
+input CreateTodoInput {
+  title: String!
+  description: String
+}
+
+input UpdateTodoInput {
+  title: String
+  description: String
+}
