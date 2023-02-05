@@ -2,11 +2,10 @@ import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common'
 import GraphiQLMiddleware from './graphql/graphiql/graphiql.middleware'
 import { GRAPHIQL_PATH, GRAPHQL_PATH } from './graphql/graphql.constant'
 import { AppGraphQLModule } from './graphql/graphql.module'
-import { PostModule } from './post/post.module'
 import { TodoModule } from './todo/todo.module'
 
 @Module({
-  imports: [AppGraphQLModule.forRootAsync(), PostModule, TodoModule],
+  imports: [AppGraphQLModule.forRootAsync(), TodoModule],
   controllers: [],
   providers: [],
 })

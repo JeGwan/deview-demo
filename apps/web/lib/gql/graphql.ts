@@ -44,17 +44,8 @@ export type MutationUpdateTodoArgs = {
   update: UpdateTodoInput;
 };
 
-export type Post = {
-  __typename?: 'Post';
-  body: Scalars['String'];
-  id: Scalars['Int'];
-  title: Scalars['String'];
-  userId: Scalars['Int'];
-};
-
 export type Query = {
   __typename?: 'Query';
-  posts: Array<Post>;
   todos: Array<Todo>;
 };
 
