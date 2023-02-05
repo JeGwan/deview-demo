@@ -35,4 +35,12 @@ export class TodoService {
 
     return (this.todos[todoIndex] = { ...this.todos[todoIndex], ...update })
   }
+
+  deleteTodo(id: Todo['id']) {
+    const todo = this.todos.find(todo => todo.id === id)
+    if (!todo) return false
+
+    this.todos = this.todos.filter(todo => todo.id !== id)
+    return true
+  }
 }

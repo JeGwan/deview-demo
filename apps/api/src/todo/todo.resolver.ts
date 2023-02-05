@@ -21,4 +21,9 @@ export class TodoResolver {
   async updateTodo(@Args('id', { type: () => Int }) id: number, @Args('update') update: UpdateTodoInput) {
     return this.todoService.updateTodo(id, update)
   }
+
+  @Mutation(() => Boolean)
+  async deleteTodo(@Args('id', { type: () => Int }) id: number) {
+    return this.todoService.deleteTodo(id)
+  }
 }
