@@ -17,6 +17,7 @@ export type Scalars = {
 };
 
 export type CreateTodoInput = {
+  completed?: InputMaybe<Scalars['Boolean']>;
   description?: InputMaybe<Scalars['String']>;
   title: Scalars['String'];
 };
@@ -59,6 +60,7 @@ export type Todo = {
 };
 
 export type UpdateTodoInput = {
+  completed?: InputMaybe<Scalars['Boolean']>;
   description?: InputMaybe<Scalars['String']>;
   title?: InputMaybe<Scalars['String']>;
 };

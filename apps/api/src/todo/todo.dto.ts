@@ -7,6 +7,9 @@ export class CreateTodoInput {
 
   @Field(type => String, { nullable: true })
   description?: string
+
+  @Field(type => Boolean, { nullable: true })
+  completed?: boolean
 }
 
 @InputType()

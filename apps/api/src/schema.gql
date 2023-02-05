@@ -28,9 +28,11 @@ type Mutation {
 input CreateTodoInput {
   title: String!
   description: String
+  completed: Boolean
 }
 
 input UpdateTodoInput {
   title: String
   description: String
+  completed: Boolean
 }
